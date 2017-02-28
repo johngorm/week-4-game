@@ -19,8 +19,9 @@ $(document).ready(function(){
 	var red_gem = "./assets/images/red_gem.png";
 	var yellow_gem ="./assets/images/yellow_gem.png";
 	var purple_gem = "./assets/images/purple_gem.png";
-
+	
 	var gems_pic = [green_gem, red_gem, yellow_gem, purple_gem];
+	
 
 	var writeTargetToScreen = function(){
 		$("#random-goal").html("<p>"+ targetValue + "</p>");
@@ -31,7 +32,7 @@ $(document).ready(function(){
 	};
 
 	var writeWinLossToScreen = function(){
-		$("#win_lose").html("Wins: " + win +"<br>Losses: " + loss);
+		$("#win_lose").html("<p>Wins: " + win +"<br>Losses: " + loss + "</p>");
 	}
 
 	var resetGame = function(){
@@ -55,7 +56,6 @@ $(document).ready(function(){
 		img.attr('src', gems_pic[ii]);
 		var val = generateCrystalValue();
 		img.data('value', val);
-		
 		$("#crystals").append(img);
 	}
 
@@ -64,8 +64,8 @@ $(document).ready(function(){
 		writePlayerScoreToScreen();
 		if(playerScore > targetValue){
 			loss++;
-			console.log(loss);
 			writeWinLossToScreen();
+			alert("You lose!");
 			resetGame();
 			
 		}
@@ -78,6 +78,11 @@ $(document).ready(function(){
 		}
 	});
 
-	
-
+	$(".crystals-click").hover(function(){
+			$('html,body').css('cursor', 'pointer');
+		},
+		function(){
+			$('html,body').css('cursor', 'default');
+		});	
+		
 });
