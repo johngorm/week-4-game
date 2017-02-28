@@ -9,8 +9,6 @@ var generateTargetValue = function(){
 	return Math.floor((Math.random() * 101) + 19);
 };
 
-var writeWins
-
 $(document).ready(function(){
 
 
@@ -25,15 +23,15 @@ $(document).ready(function(){
 	var gems_pic = [green_gem, red_gem, yellow_gem, purple_gem];
 
 	var writeTargetToScreen = function(){
-		$("#random-goal").html(targetValue);
+		$("#random-goal").html("<p>"+ targetValue + "</p>");
 	};
 
 	var writePlayerScoreToScreen = function(){
-		$("#score").html(playerScore);
+		$("#score").html("<p>Your total score is: " + playerScore + "</p>");
 	};
 
 	var writeWinLossToScreen = function(){
-		$("#win_lose").html("Wins: " + win +"\n\nLosses: " + loss);
+		$("#win_lose").html("Wins: " + win +"<br>Losses: " + loss);
 	}
 
 	var resetGame = function(){
@@ -46,9 +44,8 @@ $(document).ready(function(){
 		writeTargetToScreen();
 	};
 
-
 	var targetValue = generateTargetValue();
-	$("#random-goal").html(targetValue);
+	writeTargetToScreen();
 	writeWinLossToScreen();
 	
 	for(var ii = 0; ii < gems_pic.length; ii++){
@@ -62,11 +59,9 @@ $(document).ready(function(){
 		$("#crystals").append(img);
 	}
 
-
-
 	$(".crystals-click").on('click', function(){
 		playerScore += ($(this).data('value'));
-		$("#score").html(playerScore);
+		writePlayerScoreToScreen();
 		if(playerScore > targetValue){
 			loss++;
 			console.log(loss);
@@ -81,6 +76,8 @@ $(document).ready(function(){
 			writeWinLossToScreen();
 			alert("You win!");
 		}
-	})
+	});
+
+	
 
 });
