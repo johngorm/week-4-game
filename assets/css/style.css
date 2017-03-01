@@ -46,10 +46,22 @@ h1{
 	height: 60px;
 }
 
+#score{
+	margin-top: 40px;
+}
+
 img {
 	
 	position:relative;
 	left: 20%;
+	-webkit-transition: width 1s, height 1s;
+	transition: width 0.5s, height 0.5s ;
+	transition-timing-function: ease-out;
 	margin-left:15px; 
 	margin-right:15px;	
+}
+
+img:hover{
+	width: 200px;
+	height: 125px;
 }

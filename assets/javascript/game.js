@@ -21,7 +21,7 @@ $(document).ready(function(){
 	var purple_gem = "./assets/images/purple_gem.png";
 	
 	var gems_pic = [green_gem, red_gem, yellow_gem, purple_gem];
-	
+
 
 	var writeTargetToScreen = function(){
 		$("#random-goal").html("<p>"+ targetValue + "</p>");
