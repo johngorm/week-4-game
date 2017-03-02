@@ -19,6 +19,8 @@ $(document).ready(function(){
 	var red_gem = "./assets/images/red_gem.png";
 	var yellow_gem ="./assets/images/yellow_gem.png";
 	var purple_gem = "./assets/images/purple_gem.png";
+
+	// var $clickCyrstals = $("crystals-click");
 	
 	var gems_pic = [green_gem, red_gem, yellow_gem, purple_gem];
 
