@@ -51,16 +51,20 @@ $(document).ready(function(){
 	writeTargetToScreen();
 	writeWinLossToScreen();
 	
+	// Dynamically add crystals with a random value to document
 	for(var ii = 0; ii < gems_pic.length; ii++){
-
+		var crystHold = $('<div>');	
 		var img = $("<img width=150 height=100>");
 		img.addClass("crystals-click");
 		img.attr('src', gems_pic[ii]);
 		var val = generateCrystalValue();
 		img.data('value', val);
-		$("#crystals").append(img);
+		crystHold.append(img);
+		crystHold.addClass('crystal-holder');
+		$("#crystals").append(crystHold);
 	}
 
+	// Function to add value to player score upon clicking on crystal
 	$(".crystals-click").on('click', function(){
 		playerScore += ($(this).data('value'));
 		writePlayerScoreToScreen();
@@ -73,18 +77,22 @@ $(document).ready(function(){
 		}
 		else if(playerScore === targetValue){
 			win++;
-			console.log(win);
 			resetGame();
 			writeWinLossToScreen();
 			alert("You win!");
 		}
 	});
-
+ 
+ 	// Transition/Animation for mouse
 	$(".crystals-click").hover(function(){
-			$('html,body').css('cursor', 'pointer');
+			$('html,body').css('cursor' , 'pointer');
+			$(this).css('transform', 'scale(1.5,1.5)');
+
+			// $(this).css('animation', 'spin 2s infinite linear');
 		},
 		function(){
 			$('html,body').css('cursor', 'default');
+			$(this).css('transform','scale(1,1)')
 		});	
 		
 });
