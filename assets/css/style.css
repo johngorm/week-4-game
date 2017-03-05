@@ -79,7 +79,7 @@ p, #random-goal, #win_lose, #score{
 
 img {
 	
-	position:absolute;
+	position:relative;
 	clear:left;
 	width: 150px;
 	height: 100px;
